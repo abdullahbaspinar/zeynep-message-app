@@ -1,47 +1,126 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #121212;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  padding: 30px;
+* {
+  box-sizing: border-box;
 }
 
-.chat-container {
-  width: 400px;
-  background: #1e1e1e;
-  border-radius: 10px;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
   padding: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.chat-card {
+  background-color: #1f1f1f;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+
+.chat-header {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #03a9f4;
 }
 
 .chat-box {
-  height: 300px;
-  overflow-y: scroll;
-  border: 1px solid #333;
-  padding: 10px;
-  margin-bottom: 10px;
-  background: #2c2c2c;
-}
-
-form {
-  display: flex;
-  gap: 5px;
-}
-
-input[type="text"] {
   flex: 1;
+  overflow-y: auto;
+  background-color: #2a2a2a;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chat-message {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  word-wrap: break-word;
+  font-size: 14px;
+  position: relative;
+}
+
+.chat-message.you {
+  background-color: #03a9f4;
+  align-self: flex-end;
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.chat-message.other {
+  background-color: #424242;
+  align-self: flex-start;
+  color: white;
+  border-bottom-left-radius: 0;
+}
+
+.chat-message .sender {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+  color: #bdbdbd;
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+}
+
+#username {
+  width: 30%;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 8px;
   border: none;
   outline: none;
+  background-color: #333;
+  color: white;
+}
+
+#messageInput {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: white;
 }
 
 button {
-  padding: 8px 15px;
+  padding: 0 16px;
   border: none;
-  background: #03a9f4;
+  background-color: #03a9f4;
   color: white;
-  border-radius: 5px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#clearChat {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
 }

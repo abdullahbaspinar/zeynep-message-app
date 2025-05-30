@@ -2,14 +2,25 @@ const chatBox = document.getElementById('chatBox');
 const form = document.getElementById('messageForm');
 const input = document.getElementById('messageInput');
 const usernameInput = document.getElementById('username');
+const clearButton = document.getElementById('clearChat');
 
-// Önceki mesajları yükle
 function loadMessages() {
   const messages = JSON.parse(localStorage.getItem('chatMessages')) || [];
   chatBox.innerHTML = "";
   messages.forEach(msg => {
     const div = document.createElement('div');
-    div.textContent = `${msg.name}: ${msg.text}`;
+    div.classList.add('chat-message');
+    div.classList.add(msg.name === usernameInput.value ? 'you' : 'other');
+
+    if (msg.name !== usernameInput.value) {
+      const sender = document.createElement('span');
+      sender.classList.add('sender');
+      sender.textContent = msg.name;
+      div.appendChild(sender);
+    }
+
+    const messageText = document.createTextNode(msg.text);
+    div.appendChild(messageText);
     chatBox.appendChild(div);
   });
   chatBox.scrollTop = chatBox.scrollHeight;
@@ -29,8 +40,10 @@ form.addEventListener('submit', (e) => {
   loadMessages();
 });
 
-// Her 1 saniyede bir yenile
-setInterval(loadMessages, 1000);
+clearButton.addEventListener('click', () => {
+  localStorage.removeItem('chatMessages');
+  loadMessages();
+});
 
-// İlk açılışta yükle
+setInterval(loadMessages, 1000);
 loadMessages();

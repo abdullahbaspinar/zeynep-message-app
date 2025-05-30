@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mesajlaşma Uygulaması</title>
+  <title>Sohbet</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="chat-container">
-    <div class="chat-box" id="chatBox"></div>
-    <form id="messageForm">
-      <input type="text" id="username" placeholder="Adınız" required />
-      <input type="text" id="messageInput" placeholder="Mesajınızı yazın" required />
-      <button type="submit">Gönder</button>
-    </form>
+  <div class="container">
+    <div class="chat-card">
+      <div class="chat-header">Sohbet</div>
+      <div class="chat-box" id="chatBox"></div>
+      <form id="messageForm" class="chat-form">
+        <input type="text" id="username" placeholder="Adınız" required />
+        <input type="text" id="messageInput" placeholder="Mesajınız..." required />
+        <button type="submit">➤</button>
+      </form>
+      <button id="clearChat">🗑️ Sohbeti Temizle</button>
+    </div>
   </div>
   <script src="app.js"></script>
 </body>
